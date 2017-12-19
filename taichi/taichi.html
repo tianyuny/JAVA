@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>太极</title>
+</head>
+<style>
+    body {
+        height: 100vh;
+        background-color: #666;
+    }
+    .parent {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: auto;
+        width: 40vw;
+        height: 40vw;
+        background-color: black;
+        border-radius: 50%;
+        overflow: hidden;
+        animation: rotate 5s linear infinite;
+    }
+    .parent>div:nth-child(1) {
+        width: 100%;
+        height: 50%;
+        background-color: white;
+    }
+    .parent>div:nth-child(2) {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translatey(-50%);
+        width: 50%;
+        height: 50%;
+        border-radius: 50%;
+        background-color: white;
+        animation: size1 10s linear infinite;
+    }
+    .parent>div:nth-child(2)>div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 40%;
+        height: 40%;
+        border-radius: 50%;
+        background-color: black;
+    }
+    .parent>div:nth-child(3) {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translatey(-50%);
+        width: 50%;
+        height: 50%;
+        border-radius: 50%;
+        background-color: black;
+        animation: size2 10s linear infinite;
+    }
+    .parent>div:nth-child(3)>div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 40%;
+        height: 40%;
+        border-radius: 50%;
+        background-color: white;
+    }
+    @keyframes size1 {
+        from {
+            width: 30%;
+            height: 30%;
+        }
+        50% {
+            width: 70%;
+            height: 70%;
+        }
+        to {
+            width: 30%;
+            height: 30%;
+        }
+    }
+    @keyframes size2 {
+        from {
+            width: 70%;
+            height: 70%;
+        }
+        50% {
+            width: 30%;
+            height: 30%;
+        }
+        to {
+            width: 70%;
+            height: 70%;
+        }
+    }
+    @keyframes rotate {
+        from {
+            transform: translatex(-50%) translatey(-50%) rotatez(0);
+        }
+        to {
+            transform: translatex(-50%) translatey(-50%) rotatez(-360deg);
+        }
+    }
+</style>
+<body>
+<div class="parent">
+    <div></div>
+    <div>
+        <div></div>
+    </div>
+    <div>
+        <div></div>
+    </div>
+</div>
+</body>
+</html>
