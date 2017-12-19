@@ -1,0 +1,161 @@
+@size1: 20vw;
+html {
+  min-height: 100vh;
+  background-color: black;
+  background-image:url(../images/header.png);
+  background-repeat:no-repeat;
+  background-position:0 2vw;
+  background-size:100%;
+  animation: love 10s linear 1;
+}
+@keyframes love {
+  from {
+    background-position:100vw 2vw;
+  }
+  to {
+    background-position:0 2vw;
+  }
+}
+body {
+  min-height: 85vh;
+  padding-top: 15vh;
+  margin: 0;
+  perspective: 10000px;
+  header {
+    img {
+      animation: header 15s linear 1;
+      position: absolute;
+      top: 17vw;
+      right: 3vw;
+      width: 200px;
+    }
+    @keyframes header {
+      from {
+        right: -25vw;
+        width: 0;
+        background-size: 0;
+      }
+      to{
+        right: 3vw;
+        width: 200px;
+        background-size: 1em;
+      }
+    }
+  }
+
+  #heart {
+    position: relative;
+    width: 20vw;
+    height: 40vw;
+    margin: 0 auto;
+    transform-style: preserve-3d;
+    transform-origin: 50% 125% -8vw;
+    animation: mymove 120s linear infinite;
+    @keyframes mymove {
+      0% {
+        transform: rotatey(0deg) rotatex(0deg) rotatez(0deg);
+      }
+      100% {
+        transform: rotatey(-720deg) rotatex(1440deg) rotatez(360deg);
+      }
+    }
+    #heartchild {
+      div {
+        position: absolute;
+        top: 12%;
+        left: 62%;
+        width: 30vw;
+        height: 60vw;
+        border: 2px solid red;
+        border-left: 0;
+        border-bottom: 0;
+        border-radius: e("50% 50% 0 / 50% 50% 0");
+        animation: color 10s infinite;
+      }
+      position: relative;
+      top: 3vw;
+      left: -23.6vw;
+      width: 30vw;
+      height: 60vw;
+      transform-origin: 112.8%;
+      transform-style: preserve-3d;
+      animation: imove 10s linear infinite;
+      @keyframes imove {
+        from {
+          transform: rotatey(0deg);
+        }
+        to {
+          transform: rotatey(360deg);
+        }
+      }
+      @keyframes color {
+        0% {
+          border-color: transparent;
+        }
+        25% {
+          border-color: #db4532;
+        }
+        50% {
+          border-color: red;
+        }
+        85% {
+          border-color: #8b1524;
+        }
+        95% {
+          border-color: #320000;
+        }
+        100% {
+          border-color: transparent;
+        }
+      }
+    }
+    #cube {
+      position: absolute;
+      top: 0;
+      left: -9.5vw;
+      width: @size1;
+      height: @size1;
+      transform-style: preserve-3d;
+      transform: translatex(50%) translatey(200%) translatez(10vw);
+      div {
+        position: absolute;
+        width: @size1;
+        height: @size1;
+        background-size: 100%;
+        opacity: .5;
+        &:nth-child(6) {
+          top: @size1;
+          transform-origin: top;
+          transform: rotatex(-90deg);
+          background-image: url(../images/heart2.jpg);
+        }
+        &:nth-child(5) {
+          top: -@size1;
+          transform-origin: bottom;
+          transform: rotatex(90deg);
+          background-image: url(../images/heart1.jpg);
+        }
+        &:nth-child(4) {
+          left: @size1;
+          transform-origin: left;
+          transform: rotatey(90deg);
+          background-image: url(../images/heart5.jpg);
+        }
+        &:nth-child(3) {
+          left: -@size1;
+          transform-origin: right;
+          transform: rotatey(-90deg);
+          background-image: url(../images/heart4.jpg);
+        }
+        &:nth-child(2) {
+          transform: translatez(-@size1) rotatey(180deg);
+          background-image: url(../images/heart3.jpg);
+        }
+        &:nth-child(1) {
+          background-image: url(../images/heart6.jpg);
+        }
+      }
+    }
+  }
+
+}
