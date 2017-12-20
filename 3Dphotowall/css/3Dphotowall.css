@@ -12,7 +12,7 @@ body #wall {
   height: 200px;
   margin: auto;
   transform-style: preserve-3d;
-  transform: rotatex(-15deg);
+  transform: rotatex(-30deg);
 }
 body #wall ul {
   margin: 0;
