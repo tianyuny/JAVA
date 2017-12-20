@@ -31,7 +31,11 @@ window.onload = function() {
         var lastX = touch.pageX;
         var lastY = touch.pageY;
         //alert(0);
-        this.addEventListener("touchmove",function(e){
+        this.addEventListener("touchmove",move);
+        this.addEventListener("touchend",function(){
+            this.removeEventListener("touchmove",move);
+        });
+        function move(e){
             e.preventDefault();
             var touch = e.touches[0];
             var nowX = touch.pageX;
@@ -43,6 +47,8 @@ window.onload = function() {
             wall.style.transform = "rotatex("+haulX+"deg) rotatey("+haulY+"deg)";
             lastX = nowX;
             lastY = nowY;
-        })
+
+        }
     })
+
 };
