@@ -6,7 +6,7 @@ body {
   #wall {
     position: absolute;
     top: 30%;
-    left: 40%;
+    left: e("calc(50% - 66.5px)");
     width: 133px;
     height: 200px;
     margin: auto;
@@ -21,7 +21,10 @@ body {
           position: absolute;
           width: 133px;
           height: 200px;
-          border: 1px solid red;
+          border: 2px solid rgb(241,158,194);
+          -webkit-box-shadow: 0 0 10px 0 rgb(241,158,194);
+          -moz-box-shadow: 0 0 10px 0 rgb(241,158,194);
+          box-shadow: 0 0 10px 0 rgb(241,158,194);
           -webkit-box-reflect: below 10px -webkit-linear-gradient(top,rgba(0,0,0,0) 30%, rgba(0,0,0,1) 100%);
         }
       }

@@ -7,7 +7,7 @@ body {
 body #wall {
   position: absolute;
   top: 30%;
-  left: 40%;
+  left: calc(50% - 66.5px);
   width: 133px;
   height: 200px;
   margin: auto;
@@ -23,7 +23,10 @@ body #wall ul li img {
   position: absolute;
   width: 133px;
   height: 200px;
-  border: 1px solid red;
+  border: 2px solid #f19ec2;
+  -webkit-box-shadow: 0 0 10px 0 #f19ec2;
+  -moz-box-shadow: 0 0 10px 0 #f19ec2;
+  box-shadow: 0 0 10px 0 #f19ec2;
   -webkit-box-reflect: below 10px -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 30%, #000000 100%);
 }
 body #wall p {
