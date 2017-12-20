@@ -1,0 +1,36 @@
+body {
+  height: 100vh;
+  background-color: black;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+body #wall {
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  width: 133px;
+  height: 200px;
+  margin: auto;
+  transform-style: preserve-3d;
+  transform: rotatex(-15deg);
+}
+body #wall ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body #wall ul li img {
+  position: absolute;
+  width: 133px;
+  height: 200px;
+  border: 1px solid red;
+  -webkit-box-reflect: below 10px -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 30%, #000000 100%);
+}
+body #wall p {
+  width: 1000px;
+  height: 1000px;
+  margin-left: -400px;
+  border-radius: 50%;
+  background: -webkit-radial-gradient(center, circle, rgba(255, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+  transform: rotatex(90deg) translatez(313px);
+}
