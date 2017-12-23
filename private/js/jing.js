@@ -9,7 +9,7 @@ window.onload = function() {
     document.addEventListener("touchstart",androidmobile); //开启移动端触摸滑动动画
     setTimeout(function(){
             photosWallanimation(); //照片墙动画
-    },4000);
+    },0);
     for (var i = 0; i < photos.length; i++) {
         photos[i].onclick = function() {
             var bigPhoto = document.createElement('img');//创建大图片
@@ -35,7 +35,11 @@ window.onload = function() {
                 bigPhoto.addEventListener("touchstart",function(e){
                     bigPhoto.style.transition = "none";
                     if (bigPhoto.previousSibling) {
-                        if (bigPhoto.previousSibling.previousSibling) bigPhoto.previousSibling.previousSibling.remove();
+                        if (bigPhoto.previousSibling.previousSibling) {
+                            bigPhoto.previousSibling.previousSibling.remove();
+                            this.style.left = winWidth/2 + "px";
+                            this.style.transform = "translatex(-50%)";
+                        }
                         bigPhoto.previousSibling.remove();
                     }
                     if (bigPhoto.nextSibling) {
@@ -76,8 +80,8 @@ window.onload = function() {
                             sibling = beforeSibling;
                             sibling.style.left = winWidth/2 + "px";
                             sibling.style.transform = "translatex(-50%)";
-                            sibling.style.transition = "all 1s";
-                            this.style.left = 2*winWidth + "px";
+                            sibling.style.transition = "all 0.5s";
+                            this.style.left = 3*winWidth + "px";
                             this.style.transition = "all 1s";
                         }
                         if (minusX<=winWidth/4 && minusX>=-winWidth/4){
@@ -90,14 +94,14 @@ window.onload = function() {
                         }
                         if (minusX < -winWidth/4) {
                             sibling = nextSibling;
-                            sibling.style.left = winWidth/2 + "px";
-                            sibling.style.transform = "translatex(-50%)";
-                            sibling.style.transition = "all 1s";
+                            sibling.style.right = winWidth/2 + "px";
+                            sibling.style.transform = "translatex(50%)";
+                            sibling.style.transition = "all 0.5s";
                             this.style.left = -2*winWidth + "px";
                             this.style.transition = "all 1s";
                         }
 
-                        if (sibling) setTimeout(function(){bigPhotos(sibling);},800);
+                        if (sibling) bigPhotos(sibling);
 
                     });
 
