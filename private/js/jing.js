@@ -23,7 +23,6 @@ window.onload = function() {
             height(bigPhoto,100);
             photosWallanimation2();       //照片墙回退
             bigPhotos(bigPhoto);
-
             function bigPhotos(bigPhoto){
                 bigPhoto.onclick = function() { //关闭大图片
                     bigPhoto.style.transition = "none";
@@ -32,6 +31,7 @@ window.onload = function() {
                     clearTimeout(bigPhoto.move);
                     height(this,0);
                     photosWallanimation(); //照片墙css延时动画
+                    return false;
                 };
                 bigPhoto.addEventListener("touchstart",function(e){
                     bigPhoto.style.transition = "none";
@@ -51,10 +51,8 @@ window.onload = function() {
                     var touch = e.touches[0];
                     var lastX = touch.pageX;
                     var minusX;
-                    console.log("lastX"+lastX);
                     var src = this.src;
                     var number = parseFloat(src.slice(src.length-5)); //图片编号
-                    console.log(this.src);
                     var beforeSibling = document.createElement('img');
                     var nextSibling = document.createElement('img');
                     var beforeNumber = number -1;
@@ -76,7 +74,6 @@ window.onload = function() {
                         var nextSibling = this.nextSibling;
                         this.removeEventListener("touchmove",move);
                         this.removeEventListener("touchend",end);
-                        console.log("minusX: " + minusX);
                         if (minusX > winWidth/4) {
                             sibling = beforeSibling;
                             sibling.style.left = winWidth/2 + "px";
@@ -101,23 +98,21 @@ window.onload = function() {
                             this.style.left = -2*winWidth + "px";
                             this.style.transition = "all 1s";
                         }
-
                         if (sibling) bigPhotos(sibling);
-
-                    });
+                        return false;
+                    },false);
 
                     function move(e) {
-                        console.log("e.touches:" + e.touches);
+                        e.preventDefault();
                         var touch = e.touches[0];
                         var newX = touch.pageX;
                         minusX = newX - lastX;
-                        console.log(minusX);
-                        //if (minusX === 0) sibling.style.height = "0";
                         beforeSibling.style.left = (minusX - winWidth - 10) + "px";
                         nextSibling.style.right = (-minusX - winWidth + 10) + "px";
                         this.style.left = (winWidth/2 + minusX) + "px";
+                        return false;
                     }
-                });
+                },false);
             }
         }
     }
@@ -161,6 +156,7 @@ window.onload = function() {
             wall.style.transform = "rotatex("+haulX+"deg) rotatey("+haulY+"deg)";
             lastX = nowX;
             lastY = nowY;
+            return false;
         }
     }
     function photosWallanimation() { //照片墙css延时动画
