@@ -4,11 +4,12 @@ window.onload = function() {
     var haulX = -25;
     var haulY = 0;
     var parent = document.getElementById('photo');
+    var winWidth = window.innerWidth;
     document.onmousedown = pcmobile; //开启PC端鼠标拖拽动画
     document.addEventListener("touchstart",androidmobile); //开启移动端触摸滑动动画
     setTimeout(function(){
             photosWallanimation(); //照片墙动画
-    },1);
+    },4000);
     for (var i = 0; i < photos.length; i++) {
         photos[i].onclick = function() {
             var bigPhoto = document.createElement('img');//创建大图片
@@ -16,23 +17,103 @@ window.onload = function() {
             document.removeEventListener("touchstart",androidmobile); //关闭移动端触摸滑动动画
             parent.innerHTML = ""; //清空大图片
             parent.appendChild(bigPhoto);
-            //console.log(this.getElementsByTagName('img')[0]);
             bigPhoto.src = this.getElementsByTagName('img')[0].src;
-            //bigPhoto.src = this.src.replace("0","");
             bigPhoto.className = "photos";
             height(bigPhoto,100);
             photosWallanimation2();       //照片墙回退
-            bigPhoto.onclick = function() { //关闭大图片
-                document.onmousedown = pcmobile; //开启PC端鼠标拖拽动画
-                document.addEventListener("touchstart",androidmobile); //开启移动端触摸滑动动画
-                clearTimeout(bigPhoto.move);
-                height(this,0);
-                photosWallanimation(); //照片墙css延时动画
-            };
-            //bigPhoto.addEventListener("touchstart",function(e){
-                //var touch = e.touches;
-                //touch[0]
-            //});
+            bigPhotos(bigPhoto);
+
+            function bigPhotos(bigPhoto){
+                bigPhoto.onclick = function() { //关闭大图片
+                    bigPhoto.style.transition = "none";
+                    document.onmousedown = pcmobile; //开启PC端鼠标拖拽动画
+                    document.addEventListener("touchstart",androidmobile); //开启移动端触摸滑动动画
+                    clearTimeout(bigPhoto.move);
+                    height(this,0);
+                    photosWallanimation(); //照片墙css延时动画
+                };
+                bigPhoto.addEventListener("touchstart",function(e){
+                    bigPhoto.style.transition = "none";
+                    if (bigPhoto.previousSibling) {
+                        if (bigPhoto.previousSibling.previousSibling) bigPhoto.previousSibling.previousSibling.remove();
+                        bigPhoto.previousSibling.remove();
+                    }
+                    if (bigPhoto.nextSibling) {
+                        if (bigPhoto.nextSibling.nextSibling) bigPhoto.nextSibling.nextSibling.remove();
+                        bigPhoto.nextSibling.remove();
+                    }
+                    if (this.style.height !== "100vh") return false;
+                    var touch = e.touches[0];
+                    var lastX = touch.pageX;
+                    var minusX;
+                    console.log("lastX"+lastX);
+                    var src = this.src;
+                    var number = parseFloat(src.slice(src.length-5)); //图片编号
+                    console.log(this.src);
+                    var beforeSibling = document.createElement('img');
+                    var nextSibling = document.createElement('img');
+                    var beforeNumber = number -1;
+                    var nextNumber = number + 1;
+                    this.parentNode.insertBefore(beforeSibling,this);
+                    this.parentNode.appendChild(nextSibling);
+                    beforeSibling.style.height = nextSibling.style.height = "100vh";
+                    beforeSibling.style.position = nextSibling.style.position = "fixed";
+                    beforeSibling.style.left = (-winWidth - 10) + "px";
+                    nextSibling.style.right = (-winWidth + 10) + "px";
+                    if (beforeNumber < 1) beforeNumber = photos.length;
+                    if (nextNumber > photos.length) nextNumber = 1;
+                    beforeSibling.src = "images/" + beforeNumber + ".jpg";
+                    nextSibling.src = "images/" + nextNumber + ".jpg";
+                    this.addEventListener("touchmove",move);
+                    this.addEventListener("touchend",function end(){
+                        var sibling;
+                        var beforeSibling = this.previousSibling;
+                        var nextSibling = this.nextSibling;
+                        this.removeEventListener("touchmove",move);
+                        this.removeEventListener("touchend",end);
+                        console.log("minusX: " + minusX);
+                        if (minusX > winWidth/4) {
+                            sibling = beforeSibling;
+                            sibling.style.left = winWidth/2 + "px";
+                            sibling.style.transform = "translatex(-50%)";
+                            sibling.style.transition = "all 1s";
+                            this.style.left = 2*winWidth + "px";
+                            this.style.transition = "all 1s";
+                        }
+                        if (minusX<=winWidth/4 && minusX>=-winWidth/4){
+                            beforeSibling.style.left = (-winWidth - 10) + "px";
+                            nextSibling.style.right = (-winWidth + 10) + "px";
+                            this.style.left = winWidth/2 + "px";
+                            beforeSibling.style.transition = "all 0.4s";
+                            nextSibling.style.transition = "all 0.4s";
+                            this.style.transition = "all 0.4s";
+                        }
+                        if (minusX < -winWidth/4) {
+                            sibling = nextSibling;
+                            sibling.style.left = winWidth/2 + "px";
+                            sibling.style.transform = "translatex(-50%)";
+                            sibling.style.transition = "all 1s";
+                            this.style.left = -2*winWidth + "px";
+                            this.style.transition = "all 1s";
+                        }
+
+                        if (sibling) setTimeout(function(){bigPhotos(sibling);},800);
+
+                    });
+
+                    function move(e) {
+                        console.log("e.touches:" + e.touches);
+                        var touch = e.touches[0];
+                        var newX = touch.pageX;
+                        minusX = newX - lastX;
+                        console.log(minusX);
+                        //if (minusX === 0) sibling.style.height = "0";
+                        beforeSibling.style.left = (minusX - winWidth - 10) + "px";
+                        nextSibling.style.right = (-minusX - winWidth + 10) + "px";
+                        this.style.left = (winWidth/2 + minusX) + "px";
+                    }
+                });
+            }
         }
     }
     function pcmobile(e) { //pc端鼠标拖拽动画
@@ -54,7 +135,6 @@ window.onload = function() {
         };
         return false;
     }
-
     function androidmobile(e){ //移动端触摸滑动动画
         var touch = e.touches[0];
         var lastX = touch.pageX;
@@ -63,7 +143,6 @@ window.onload = function() {
         this.addEventListener("touchend",function end(){
             this.removeEventListener("touchmove",move);
             this.removeEventListener("touchend",end);
-            //alert(0);
         });
         function move(e){
             e.preventDefault();
