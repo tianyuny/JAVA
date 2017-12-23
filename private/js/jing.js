@@ -101,7 +101,6 @@ window.onload = function() {
                         if (sibling) bigPhotos(sibling);
                         return false;
                     },false);
-
                     function move(e) {
                         e.preventDefault();
                         var touch = e.touches[0];
