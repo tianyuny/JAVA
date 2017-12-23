@@ -10,6 +10,7 @@ window.onload = function() {
     setTimeout(function(){
             photosWallanimation(); //照片墙动画
     },0);
+    document.onclick = photosWallanimation(); //照片墙动画
     for (var i = 0; i < photos.length; i++) {
         photos[i].onclick = function() {
             var bigPhoto = document.createElement('img');//创建大图片
