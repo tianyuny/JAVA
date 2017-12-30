@@ -1,0 +1,291 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Microsoft YaHei UI";
+}
+/*about与gallery区通用标题部分*/
+.alike_top {
+  text-align: center;
+}
+.alike_top h3 {
+  margin-top: 50px;
+  line-height: 1.5em;
+  font-size: 3em;
+}
+.alike_top hr {
+  width: 2.5em;
+  margin: 20px auto;
+  border: 1px solid #07cbc9;
+}
+.alike_top p {
+  width: 465px;
+  margin: 0 auto;
+  line-height: 1.5em;
+  color: #aaa;
+  font-size: .9em;
+}
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 80%;
+  height: 80px;
+  padding: 0 10%;
+  background: #07cbc9;
+}
+.header .logo {
+  float: left;
+  margin-top: 15px;
+}
+.header .logo img {
+  height: 50px;
+}
+.header .nav {
+  float: right;
+}
+.header .nav li {
+  float: left;
+}
+.header .nav li a {
+  display: block;
+  padding: 0 10px;
+  line-height: 80px;
+  color: white;
+  font-weight: bold;
+}
+.header .nav li a:hover {
+  background: black;
+}
+.banner {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  margin-top: 80px;
+}
+.banner .below img {
+  width: 100%;
+  height: 600px;
+}
+.banner .above {
+  position: absolute;
+  width: 100%;
+  height: 600px;
+  background: rgba(0, 0, 0, 0.4);
+}
+.banner .above input,
+.banner .above textarea {
+  display: block;
+  width: 500px;
+  padding: 10px;
+  margin: 20px auto;
+  line-height: 1.5em;
+  color: #999;
+  border: 2px solid #888;
+  background: transparent;
+}
+.banner .above input:hover,
+.banner .above textarea:hover,
+.banner .above input:focus,
+.banner .above textarea:focus {
+  border-color: #07cbc9;
+  color: white;
+}
+.banner .above textarea {
+  height: 100px;
+}
+.banner .above input:first-child {
+  margin-top: 120px;
+}
+.banner .above input:last-child {
+  width: 130px;
+  cursor: pointer;
+}
+.banner .above input:last-child:hover {
+  background: #07cbc9;
+}
+.about .ab_middle {
+  width: 1030px;
+  margin: 40px auto;
+  overflow: hidden;
+  zoom: 1;
+}
+.about .ab_middle > div {
+  float: left;
+}
+.about .ab_middle .ab_middle_left {
+  width: 220px;
+}
+.about .ab_middle .ab_middle_left h4 {
+  padding: 10px;
+  text-indent: 10px;
+  font-size: 2em;
+  font-weight: normal;
+}
+.about .ab_middle .ab_middle_left .ab_middle_left_content {
+  position: relative;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #bbb;
+  background: rgba(255, 255, 255, 0.4);
+}
+.about .ab_middle .ab_middle_left .ab_middle_left_content p {
+  line-height: 1.5em;
+}
+.about .ab_middle .ab_middle_left .ab_middle_left_content a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 20px 0;
+  color: white;
+  border: 1px solid black;
+  background: black;
+}
+.about .ab_middle .ab_middle_left .ab_middle_left_content a:hover {
+  color: black;
+  background: transparent;
+}
+.about .ab_middle .ab_middle_center {
+  width: 550px;
+}
+.about .ab_middle .ab_middle_center img {
+  width: 100%;
+}
+.about .ab_middle .ab_middle_right {
+  width: 230px;
+  margin-left: 30px;
+}
+.about .ab_middle .ab_middle_right .ab_middle_right_content {
+  margin-bottom: 30px;
+  text-align: center;
+  border: 1px solid #07cbc9;
+}
+.about .ab_middle .ab_middle_right .ab_middle_right_content h4 {
+  margin: 20px 0;
+  font-size: 2em;
+}
+.about .ab_middle .ab_middle_right .ab_middle_right_content hr {
+  width: 2em;
+  margin: 0 auto;
+  border: 1px solid #07cbc9;
+}
+.about .ab_middle .ab_middle_right .ab_middle_right_content p {
+  margin: 20px 0;
+  font-size: 1.2em;
+}
+.about .ab_bottom {
+  width: 100%;
+  margin-top: 100px;
+  overflow: hidden;
+  zoom: 1;
+}
+.about .ab_bottom > div {
+  position: relative;
+  float: left;
+  width: 25%;
+  background: #07cbc9;
+}
+.about .ab_bottom > div dl {
+  margin: 40px;
+}
+.about .ab_bottom > div dl dt {
+  color: white;
+  font-size: 2em;
+}
+.about .ab_bottom > div dl dd:nth-child(3) {
+  margin: 20px 0;
+  line-height: 2em;
+  color: #eee;
+  font-size: 1.1em;
+}
+.about .ab_bottom > div dl dd:nth-child(4) {
+  line-height: 1.5em;
+  color: #ddd;
+  font-size: .9em;
+}
+.about .ab_bottom > div a {
+  display: block;
+  width: 80px;
+  padding: 10px;
+  margin: 30px auto;
+  text-align: center;
+  color: white;
+  border: 1px solid black;
+  background: black;
+}
+.about .ab_bottom > div a:hover {
+  background: transparent;
+}
+.about .ab_bottom .ab_bottom_top {
+  margin-left: 25%;
+}
+.about .ab_bottom .ab_bottom_top img {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+}
+.about .ab_bottom .ab_bottom_top:after {
+  position: absolute;
+  top: 50%;
+  left: -45px;
+  display: block;
+  margin-top: -15px;
+  content: "";
+  border: 15px solid transparent;
+  border-right: 30px solid #07cbc9;
+}
+.about .ab_bottom .ab_bottom_bottom {
+  margin-right: 25%;
+}
+.about .ab_bottom .ab_bottom_bottom img {
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+}
+.about .ab_bottom .ab_bottom_bottom:after {
+  position: absolute;
+  top: 50%;
+  right: -45px;
+  display: block;
+  margin-top: -15px;
+  content: "";
+  border: 15px solid transparent;
+  border-left: 30px solid #07cbc9;
+  border-right-color: red;
+}
+.gallery_bottom {
+  width: 60%;
+  margin: 80px auto;
+  overflow: hidden;
+  zoom: 1;
+}
+.gallery_bottom li {
+  float: left;
+  width: 33.3%;
+}
+.gallery_bottom li dl {
+  padding: 10px;
+}
+.gallery_bottom li dl dt {
+  font-size: 0;
+}
+.gallery_bottom li dl dt img {
+  width: 100%;
+}
+.gallery_bottom li dl dd {
+  padding: 20px 15px;
+  color: white;
+  background: black;
+}
+.footer {
+  line-height: 80px;
+  text-align: center;
+  color: white;
+  background: #07cbc9;
+}
