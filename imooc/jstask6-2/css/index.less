@@ -1,0 +1,48 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  width: 800px;
+  margin: 0 auto;
+}
+#banner-nav{
+  overflow: hidden;
+  &>div{
+    float: left;
+    width: 25%;
+    height: 50px;
+    line-height: 50px;
+    font: 22px/50px "Microsoft YaHei";
+    color: #666;
+    text-align: center;
+    background: white;
+    cursor: pointer;
+  }
+  .nav-active{
+    font-weight: bold;
+    background: #fc0;
+    border-radius: 5px;
+  }
+}
+#banner{
+  height: 300px;
+  overflow: hidden;
+  a{display: block;}
+  div{
+    height: 300px;
+    background: no-repeat left top/800px;
+  }
+  .slide1{
+    background-image: url(../img/1.jpg);
+  }
+  .slide2{
+    background-image: url(../img/3.jpg);
+  }
+  .slide3{
+    background-image: url(../img/4.jpg);
+  }
+  .slide4{
+    background-image: url(../img/5.jpg);
+  }
+}
