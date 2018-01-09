@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+h1 {
+  margin: 2vw 0 4vw;
+  text-align: center;
+  font-weight: normal;
+}
+.banner {
+  position: relative;
+  width: calc(100vw-20px);
+  height: calc(38.333vw-20px);
+  max-width: 1000px;
+  max-height: 383.33px;
+  margin: 0 auto;
+  border: 10px solid #bbb;
+  overflow: hidden;
+}
+.banner li {
+  display: none;
+  /*消除图片与父元素的间隙*/
+  font-size: 0;
+}
+.banner li:first-child {
+  display: block;
+}
+.banner img {
+  width: 100%;
+}
+.banner .banner_nav {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+.banner .banner_nav span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 2px 2px white;
+  -moz-box-shadow: 0 0 2px 2px white;
+  box-shadow: 0 0 2px 2px white;
+  background: #666;
+  cursor: pointer;
+}
+.banner .banner_nav .active {
+  -webkit-box-shadow: 0 0 2px 2px #999;
+  -moz-box-shadow: 0 0 2px 2px #999;
+  box-shadow: 0 0 2px 2px #999;
+  background: white;
+}
+.banner .turn div {
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 70px;
+  margin-top: -35px;
+  background: no-repeat center / 40%;
+  cursor: pointer;
+}
+.banner .turn div:first-child {
+  background-image: url(../img/pre2.png);
+}
+.banner .turn div:last-child {
+  right: 0;
+  background-image: url(../img/pre.png);
+}
+.banner .turn div:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
