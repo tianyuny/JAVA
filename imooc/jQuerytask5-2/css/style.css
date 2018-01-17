@@ -581,6 +581,25 @@ body {
 .blogroll .blo-list ul li a:hover {
   color: red;
 }
+.blogroll-nav {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  line-height: 30px;
+  width: 50px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.1);
+}
+.blogroll-nav li {
+  border-bottom: 1px solid white;
+}
+.blogroll-nav li:last-child {
+  border: none;
+}
+.blogroll-nav li a {
+  color: #333;
+}
 .footer {
   padding: 40px 0;
   line-height: 25px;
@@ -704,4 +723,49 @@ body {
 }
 .popups .popups-in .popups-content .register .register-content .ext img:hover {
   background: #07bbbf;
+}
+.right-nav {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+}
+.right-nav a {
+  position: relative;
+  display: block;
+  text-align: center;
+  color: white;
+}
+.right-nav a img {
+  position: relative;
+  display: block;
+  width: 20px;
+  heigh: 20px;
+  padding: 10px;
+  border-bottom: 1px solid white;
+  background: #b7bbbf;
+  z-index: 2;
+}
+.right-nav a img:last-child {
+  border: none;
+}
+.right-nav a span {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 40px;
+  line-height: 40px;
+  font-size: .7em;
+  background: #71777d;
+  transition: all .5s;
+  overflow: hidden;
+  z-index: 0;
+}
+.right-nav a:hover img {
+  background: #71777d;
+}
+.right-nav a:hover span {
+  left: -60px;
 }

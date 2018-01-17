@@ -162,3 +162,84 @@ $(function(){
     //鼠标离开菜单栏隐藏子菜单
     }).mouseout(function(){content.hide()});
 });
+$(function(){
+/*
+* 楼层导航与楼层内容切换*/
+    var nav=$('.blogroll-nav'),
+        navL=nav.find('a'),
+        laye=$('.content .content-layer');
+    $(document).scroll(function(){
+        //判断是否显示导航
+        if(posit(laye.eq(0))){
+            nav.show();
+            laye.each(function(index){
+                if(posit($(this))){
+                    //初始化每一个导航链接
+                    navL.each(function(index){
+                        $(this).text('F'+(index+1)).css('color','#333');
+                        //改变目标内容与样式
+                    }).eq(index).text(tex(index)).css('color','red');
+                }
+            });
+        }else{
+            nav.hide();
+        }
+        //滚轮位置判断
+        function posit(ele){
+            var scrT=$(this).scrollTop();
+            return scrT>=ele.position().top||scrT+$(window).height()>=ele.position().top+ele.height();
+        }
+    });
+    //导航内容填充值
+    function tex(index){
+        var text;
+        switch(index){
+            case 0:
+                text='服饰';
+                break;
+            case 1:
+                text='美妆';
+                break;
+            case 2:
+                text='手机';
+                break;
+            case 3:
+                text='家电';
+                break;
+            case 4:
+                text='数码';
+                break;
+            default:
+                false;
+        }
+        return text;
+    }
+
+    //楼层导航hover事件
+    navL.each(function(index){
+        $(this).mouseover(function(){
+            //移除鼠标离开
+            $(this).off('mouseout');
+            //判断是否需要修改
+            if($(this).text()!=tex(index)){
+                $(this).text(tex(index)).css('color','red')
+                    //鼠标离开内容还原
+                    .mouseout(function(){
+
+                        $(this).text('F'+(index+1)).css('color','#333');
+                    });
+            }
+        });
+    });
+    //楼层内容切换
+    laye.each(function(index){
+       $(this).find('.layer-top li').mouseover(function(){
+           $(this).addClass('now').siblings().each(function(){
+               $(this).removeClass('now');
+           });
+           laye.eq(index).find('.layer-in ul').each(function(){
+               $(this).removeClass('active');
+           }).eq($(this).index()).addClass('active');
+       });
+    });
+});
