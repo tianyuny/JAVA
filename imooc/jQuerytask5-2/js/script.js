@@ -12,63 +12,15 @@ $(function(){
        regiFun($(this).index());
        //开启登录/注册栏
        regi.show();
-       //开启弹窗模块
+       //开启弹窗
        popups.show();
         //登录/注册标题hover事件
-        regiT.mouseover(function(){
+        regiT.click(function(){
             regiFun($(this).index());
         });
        return false;
     });
-    //登录表单验证
-    $('#user-enter').click(function(){
-        var name=$('input[name="enter-name"]').val();
-        var pass=$('input[name="enter-password"]').val();
-        if(name==='11111111111'&&pass==='111111'){
-            alert('登录成功')
-        }else{
-            $('input[name="enter-password"]').next().text('密码或用户名错误');
-            return false;
-        }
-    });
-    //登录表单输入合法验证
-    $('input[name="enter-name"]').change(function(){
-        var value=$(this).val();
-        if(isNaN(value) || value.length!==11){
-            $(this).next().text('请输入正确的邮箱或手机号');
-        }
-    });
-    $('input[name="enter-password"]').change(function(){
-        var value=$(this).val();
-        if(isNaN(value) || value.length<6){
-            $(this).next().text('请输入6-16位密码，区分大小写，不能使用空格！');
-        }
-    });
-    //注册表单验证
-    $('#user-log').click(function(){
-        var name=$('input[name="log-name"]').val();
-        var ver=$('input[name="ver"]').val();
-        if(!isNaN(name)&&name.length===11&&ver==='Gyyd'){
-            alert('注册成功')
-        }else{
-            $('input[name="ver"]').parent().next().text('注册失败');
-            return false;
-        }
-    });
-    //登录表单输入合法验证
-    $('input[name="log-name"]').change(function(){
-        var value=$(this).val();
-        if(isNaN(value) || value.length!==11){
-            $(this).next().text('请输入正确的邮箱或手机号');
-        }
-    });
-    $('input[name="ver"]').change(function(){
-        var ver=$(this).val();
-        if(ver!=='Gyyd'){
-            $(this).parent().next().text('验证码错误');
-        }
-    });
-    //登录/注册样式
+    //登录/注册
     function regiFun(index){
         //格式化样式
         regiT.each(function(index){
@@ -90,9 +42,74 @@ $(function(){
         //内容初始化
         $('form p').text('');
         popups.find('input[type="text"],input[type="password"]').each(function(){
-           $(this).val('');
+            $(this).val('');
         });
     }
+    //登录表单验证
+    $('#user-enter').click(function(){
+        var name=$('#en-name').val();
+        var pass=$('#en-pass').val();
+        if(name==='11111111111'&&pass==='111111'){
+            alert('登录成功');
+        }else{
+            $('#en-name').next().text('密码或用户名错误');
+            return false;
+        }
+    });
+    //登录表单输入合法验证
+    $('#en-name').change(function(){
+        var value=$(this).val(),
+            text;
+        if(isNaN(value) || value.length!==11){
+            text='请输入正确的邮箱或手机号';
+        }else{
+            text='';
+        }
+        $(this).next().text(text);
+    });
+    $('#en-pass').change(function(){
+        var value=$(this).val(),
+            text;
+        if(isNaN(value) || value.length<6){
+            text='请输入6-16位密码，区分大小写，不能使用空格！';
+        }else{
+            text='';
+        }
+        $(this).next().text(text);
+    });
+    //注册表单验证
+    $('#user-log').click(function(){
+        var name=$('#log-name').val();
+        var ver=$('#ver').val();
+        if(!isNaN(name)&&name.length===11&&ver==='Gyyd'){
+            alert('注册成功')
+        }else{
+            $('#ver').parent().next().text('注册失败');
+            return false;
+        }
+    });
+    //注册表单输入合法验证
+    $('#log-name').change(function(){
+        var value=$(this).val(),
+             text;
+        if(isNaN(value) || value.length!==11){
+            text='请输入正确的邮箱或手机号';
+        }else{
+            text='';
+        }
+        $(this).next().text(text);
+    });
+    $('#ver').change(function(){
+        var ver=$(this).val(),
+            text;
+        if(ver!=='Gyyd'){
+            $(this).parent().next().text('验证码错误');
+        }else{
+            text='';
+        }
+        $(this).next().text(text);
+    });
+
 });
 $(function(){
 /*
@@ -111,7 +128,7 @@ $(function(){
         clear=setInterval(function(){
             ++index>=len?index=0:false;
             slide();
-        },3000);
+        },2000);
     //立即轮播
     }).trigger('mouseout');
     //幻灯片
@@ -165,15 +182,20 @@ $(function(){
 $(function(){
 /*
 * 楼层导航与楼层内容切换*/
-    var nav=$('.blogroll-nav'),
+    var nav=$('.layer-nav'),
         navL=nav.find('a'),
-        laye=$('.content .content-layer');
-    $(document).scroll(function(){
+        laye=$('.content .content-layer'),
+        dom=$(document),
+        indx;
+    dom.scroll(function(){
         //判断是否显示导航
         if(posit(laye.eq(0))){
             nav.show();
             laye.each(function(index){
                 if(posit($(this))){
+                    //存储当前楼层位置
+                    indx=index;
+                    console.log(indx);
                     //初始化每一个导航链接
                     navL.each(function(index){
                         $(this).text('F'+(index+1)).css('color','#333');
@@ -184,12 +206,12 @@ $(function(){
         }else{
             nav.hide();
         }
-        //滚轮位置判断
-        function posit(ele){
-            var scrT=$(this).scrollTop();
-            return scrT>=ele.position().top||scrT+$(window).height()>=ele.position().top+ele.height();
-        }
     });
+    //滚轮位置判断
+    function posit(ele){
+        var scrT=dom.scrollTop();
+        return scrT>=ele.position().top||scrT+$(window).height()>=ele.position().top+ele.height();
+    }
     //导航内容填充值
     function tex(index){
         var text;
@@ -210,7 +232,7 @@ $(function(){
                 text='数码';
                 break;
             default:
-                false;
+                text=false;
         }
         return text;
     }
@@ -218,17 +240,14 @@ $(function(){
     //楼层导航hover事件
     navL.each(function(index){
         $(this).mouseover(function(){
-            //移除鼠标离开
-            $(this).off('mouseout');
-            //判断是否需要修改
-            if($(this).text()!=tex(index)){
-                $(this).text(tex(index)).css('color','red')
-                    //鼠标离开内容还原
-                    .mouseout(function(){
-
-                        $(this).text('F'+(index+1)).css('color','#333');
-                    });
-            }
+            //修改内容/样式
+                $(this).text(tex(index)).css('color','red');
+        }).mouseout(function(){
+            if(indx===index) return false;
+            $(this).text('F'+(index+1)).css('color','#333');
+            //导航被点击触发滚轮事件
+        }).click(function(){
+            dom.trigger('scroll');
         });
     });
     //楼层内容切换
@@ -237,6 +256,7 @@ $(function(){
            $(this).addClass('now').siblings().each(function(){
                $(this).removeClass('now');
            });
+           //显示对应内容
            laye.eq(index).find('.layer-in ul').each(function(){
                $(this).removeClass('active');
            }).eq($(this).index()).addClass('active');
