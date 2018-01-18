@@ -188,6 +188,9 @@ body{
                 color: red;
               }
             }
+            &:hover{
+              background: #f3f5f7;
+            }
           }
         }
         .go-cart{
@@ -554,6 +557,21 @@ body{
     }
   }
 }
+.layer-nav{
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: e("calc((100vw - 1270.5px)/2 - 60px)");
+  line-height: 30px;
+  width: 50px;
+  text-align: center;
+  background: rgba(0,0,0,.1);
+  li{
+    border-bottom: 1px solid white;
+    &:last-child{border: none;}
+    a{color: #333;}
+  }
+}
 .blogroll{
   .width;
   padding: 30px 10px;
@@ -582,21 +600,6 @@ body{
     }
   }
 }
-.blogroll-nav{
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 0;
-  line-height: 30px;
-  width: 50px;
-  text-align: center;
-  background: rgba(0,0,0,.1);
-  li{
-    border-bottom: 1px solid white;
-    &:last-child{border: none;}
-    a{color: #333;}
-  }
-}
 .footer{
   padding: 40px 0;
   line-height: 25px;
@@ -608,9 +611,9 @@ body{
     font-size: .8em;
     a{
       margin: 0 5px;
-      color: #333;
+      color: #000;
       &:hover{
-        color: #71777d;
+        color: #99111b;
       }
     }
   }

@@ -197,6 +197,9 @@ body {
 .header .header-in .cart .cart-dd ul li a:hover {
   color: red;
 }
+.header .header-in .cart .cart-dd ul li:hover {
+  background: #f3f5f7;
+}
 .header .header-in .cart .cart-dd .go-cart {
   padding: 15px 20px;
   line-height: 35px;
@@ -552,6 +555,25 @@ body {
   border: 1px solid red;
   background: rgba(255, 255, 255, 0.3);
 }
+.layer-nav {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: calc((100vw - 1270.5px)/2 - 60px);
+  line-height: 30px;
+  width: 50px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.1);
+}
+.layer-nav li {
+  border-bottom: 1px solid white;
+}
+.layer-nav li:last-child {
+  border: none;
+}
+.layer-nav li a {
+  color: #333;
+}
 .blogroll {
   width: 1270.5px;
   margin: 0 auto;
@@ -581,25 +603,6 @@ body {
 .blogroll .blo-list ul li a:hover {
   color: red;
 }
-.blogroll-nav {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 0;
-  line-height: 30px;
-  width: 50px;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.1);
-}
-.blogroll-nav li {
-  border-bottom: 1px solid white;
-}
-.blogroll-nav li:last-child {
-  border: none;
-}
-.blogroll-nav li a {
-  color: #333;
-}
 .footer {
   padding: 40px 0;
   line-height: 25px;
@@ -614,10 +617,10 @@ body {
 }
 .footer p a {
   margin: 0 5px;
-  color: #333;
+  color: #000;
 }
 .footer p a:hover {
-  color: #71777d;
+  color: #99111b;
 }
 .popups {
   display: none;

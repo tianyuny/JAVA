@@ -2654,7 +2654,7 @@
     </div>
 </div>
 <!--楼层导航-->
-<div class="blogroll-nav">
+<div class="layer-nav">
     <ul>
         <li><a href="#F1">F1</a></li>
         <li><a href="#F2">F2</a></li>
@@ -2746,10 +2746,10 @@
             <div class="register-content">
                 <!--登录-->
                 <form action="#">
-                    <input class="big" type="text" name="enter-name" placeholder="请输入登录邮箱/手机号">
+                    <input id="en-name" class="big" type="text" name="enter-name" placeholder="请输入登录邮箱/手机号">
                     <!--错误提示-->
                     <p></p>
-                    <input class="big" type="password" name="enter-password" placeholder="6-16位密码，区分大小写，不能用空格">
+                    <input id="en-pass" class="big" type="password" name="enter-password" placeholder="6-16位密码，区分大小写，不能用空格">
                     <!--错误提示-->
                     <p></p>
                     <div class="lay">
@@ -2759,11 +2759,11 @@
                 </form>
                 <!--注册-->
                 <form action="#">
-                    <input class="big" type="text" name="log-name" placeholder="请输入注册邮箱/手机号">
+                    <input id="log-name" class="big" type="text" name="log-name" placeholder="请输入注册邮箱/手机号">
                     <!--错误提示-->
                     <p></p>
                     <div class="ver">
-                        <input type="text" name="ver" placeholder="请输入验证码"><img src="img/verify.png">
+                        <input id="ver" type="text" name="ver" placeholder="请输入验证码"><img src="img/verify.png">
                     </div>
                     <!--错误提示-->
                     <p></p>
@@ -2782,9 +2782,6 @@
 </div>
 
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<!--<script src="https://cdn.bootcss.com/jquery/3.2.1/core.js"></script>
-<script src="https://cdn.bootcss.com/jquery/2.2.2/jquery.js"></script>
-<script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.min.js"></script>-->
 <script src="js/script.js"></script>
 </body>
 </html>
