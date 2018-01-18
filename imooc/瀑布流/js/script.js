@@ -60,7 +60,7 @@ window.onload=function(){
     //追加图片
     $(document).scroll(function(){
        if($(this).scrollTop()+$(window).height()>=$(this).height()){
-           for(var i in data){
+           for(var i=0; i<data.length;i++){
                warp.append('<div><a href="#"><img src="img/'
                    + data[i].src+'" alt=""><span>'+data[i].title+'</span></a></div>');
            }
@@ -68,7 +68,7 @@ window.onload=function(){
            waterfall(warp,box);
        }
     });
-}
+};
 //瀑布流主函数
 function waterfall(warp,box){
     var boxW = (box.outerWidth(true)),
