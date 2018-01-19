@@ -60,43 +60,45 @@ window.onload=function(){
     //追加图片
     $(document).scroll(function(){
        if($(this).scrollTop()+$(window).height()>=$(this).height()){
-           for(var i=0; i<data.length;i++){
-               warp.append('<div><a href="#"><img src="img/'
-                   + data[i].src+'" alt=""><span>'+data[i].title+'</span></a></div>');
+           for(var i=0;i<data.length;i++){
+               warp.append('<div><a href="#"><img src="img/'+data[i].src+'" alt=""><span>'+data[i].title+'</span></a></div>');
            }
+           // console.log(box.length);
            box=warp.children('div');
            waterfall(warp,box);
        }
     });
 };
 //瀑布流主函数
+var boxH=[];
+var boxI=0;
 function waterfall(warp,box){
     var boxW = (box.outerWidth(true)),
         colls = Math.floor($(window).width()/boxW);
     //设置容器的宽度
     warp.width(boxW*colls);
-    var boxH=[];
-    for(var i=0;i<box.length;i++){
-        if(i<colls){
-            boxH[i] = box.eq(i).outerHeight(true);
+    for(;boxI<box.length;boxI++){
+        if(boxI<colls){
+            boxH[boxI] = box.eq(boxI).outerHeight(true);
         }else{
             //找到高度最小的div
             var minH = Math.min.apply(null,boxH);
             //找到索引
             var minI = boxH.indexOf(minH);
             //更新高度
-            boxH[minI] += box.eq(i).outerHeight(true);
-            boxStyle(box.eq(i),minH,box.eq(minI).position().left,i);
+            boxH[minI] += box.eq(boxI).outerHeight(true);
+            boxStyle(box.eq(boxI),minH,box.eq(minI).position().left,boxI);
         }
-        box.eq(i).mouseover(function(){
+        box.eq(boxI).mouseover(function(){
             $(this).css("opacity",.5);
         }).mouseout(function(){
             $(this).css("opacity",1);
         });
     }
 }
-var num;
+
 //为图片设置样式
+var num;
 function boxStyle(box,top,left,index){
     if(num>=index) return;
     box.css({
