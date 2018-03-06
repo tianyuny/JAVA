@@ -1,0 +1,210 @@
+/* reset */
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Microsoft YaHei UI";
+}
+a {
+  text-decoration: none;
+}
+input,
+textarea {
+  box-sizing: border-box;
+  outline: none;
+  resize: none;
+}
+ul {
+  list-style: none;
+}
+/* 通用样式 */
+section,
+header,
+footer {
+  min-width: 1100px;
+}
+.alike-title {
+  margin: 70px auto 20px;
+  width: 800px;
+  text-align: center;
+}
+.alike-title h3 {
+  margin-bottom: 20px;
+  font-size: 48px;
+  font-weight: normal;
+  color: #f46208;
+}
+.alike-title p {
+  font-size: 14px;
+  color: inherit;
+}
+/* header */
+header {
+  width: 100%;
+  background: #2e2e2e;
+}
+.header-content {
+  position: relative;
+  margin: 0 auto;
+  width: 90%;
+  min-width: 1100px;
+  height: 95px;
+}
+.header-content .logo > img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 10px;
+  margin: auto 0;
+}
+.header-content nav {
+  float: right;
+  padding-right: 10px;
+}
+.header-content nav li {
+  float: left;
+}
+.header-content nav li a {
+  display: block;
+  width: 120px;
+  line-height: 95px;
+  text-align: center;
+  color: white;
+}
+.header-content nav li a:hover {
+  color: #f46208;
+}
+/* banner */
+.banner {
+  position: relative;
+}
+.banner img {
+  width: 100%;
+  height: 675px;
+}
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+.banner-text h4 {
+  font-size: 80px;
+  font-weight: normal;
+}
+.banner-text p {
+  font-size: 20px;
+}
+/* protfolio */
+.protfolio nav {
+  text-align: center;
+}
+.protfolio nav li {
+  display: inline-block;
+}
+.protfolio nav li a {
+  display: inline-block;
+  margin: 30px 10px 40px;
+  padding: 5px 10px;
+  font-size: 20px;
+  color: #f46208;
+  border: 1px solid #f46208;
+}
+.protfolio nav li a:hover {
+  background: #2e2e2e;
+}
+.protfolio-img {
+  height: 560px;
+  background: url(../img/portfolio-nav-img.jpg) no-repeat left top / 100% 100%;
+}
+/* stats */
+.stats-bottom {
+  margin: 50px auto;
+  width: 900px;
+  overflow: hidden;
+}
+.stats-bottom li {
+  float: left;
+  width: 25%;
+  text-align: center;
+}
+.stats-bottom li h5 {
+  margin: 20px 0;
+  font-size: 22px;
+  font-weight: normal;
+}
+.stats-bottom li b {
+  font-size: 25px;
+  font-weight: normal;
+  color: #f46208;
+  letter-spacing: .3em;
+}
+/* Team */
+.team {
+  margin-top: 70px;
+  padding: 70px 0;
+  background: #2e2e2e;
+  color: white;
+}
+.team .alike-title {
+  margin-top: 0;
+}
+.team .team-bottom {
+  margin: 50px auto 0;
+  width: 900px;
+  overflow: hidden;
+}
+.team .team-bottom li {
+  float: left;
+  width: 33.333%;
+  text-align: center;
+}
+.team .team-bottom li h5 {
+  font-size: 16px;
+  font-weight: normal;
+}
+.team .team-bottom li p {
+  font-size: 14px;
+}
+/* contact us */
+.contactus form {
+  margin: 70px auto 80px;
+  width: 950px;
+  font-size: 0;
+}
+.contactus form input[type="text"],
+.contactus form input[type="email"] {
+  padding: 20px 10px;
+  width: 463px;
+  border: 1px solid #bfbfbf;
+}
+.contactus form input[type="email"] {
+  margin-left: 24px;
+}
+.contactus form textarea {
+  margin: 15px 0;
+  padding: 20px 10px;
+  width: 100%;
+  height: 274px;
+  line-height: 232px;
+}
+.contactus form input[type="submit"] {
+  display: block;
+  margin: 20px auto;
+  width: 200px;
+  height: 57px;
+  font-size: 18px;
+  color: white;
+  border: 0;
+  background: #f46208;
+  cursor: pointer;
+}
+/* footer */
+footer {
+  line-height: 110px;
+  text-align: center;
+  font-size: 14px;
+  color: white;
+  background: #2e2e2e;
+}
