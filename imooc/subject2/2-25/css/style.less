@@ -1,0 +1,145 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+/* 天空 */
+.sky {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 60vh;
+  background: -webkit-linear-gradient(180deg, rgb(196, 228, 253), rgb(255, 255, 255));
+  background:    -moz-linear-gradient(180deg, rgb(196, 228, 253), rgb(255, 255, 255));
+  background:     -ms-linear-gradient(180deg, rgb(196, 228, 253), rgb(255, 255, 255));
+  background:      -o-linear-gradient(180deg, rgb(196, 228, 253), rgb(255, 255, 255));
+  background:         linear-gradient(180deg, rgb(196, 228, 253), rgb(255, 255, 255));
+}
+/* 草地 */
+.grassland {
+  position: relative;
+  width: 100vw;
+  height: 40vh;
+  background: -webkit-linear-gradient(0deg, rgb(148, 190, 89), rgb(255, 255, 255));
+  background:    -moz-linear-gradient(0deg, rgb(148, 190, 89), rgb(255, 255, 255));
+  background:     -ms-linear-gradient(0deg, rgb(148, 190, 89), rgb(255, 255, 255));
+  background:      -o-linear-gradient(0deg, rgb(148, 190, 89), rgb(255, 255, 255));
+  background:         linear-gradient(0deg, rgb(148, 190, 89), rgb(255, 255, 255));
+}
+
+/* 云朵 */
+.cloud {
+  position: absolute;
+  width: 14vh;
+  height: 5vh;
+  background: #fff;
+  border-radius: 2.5vh;
+}
+.cloud:before {
+  content: '';
+  position: absolute;
+  top : -12%;
+  left: 4%;
+  transform: rotate(40deg);
+  width: 7vh;
+  height: 6vh;
+  background: #fff;
+  border-radius: 2.5vh;
+}
+.cloud:after {
+  content: '';
+  position: absolute;
+  top : -70%;
+  right: 7%;
+  width: 9vh;
+  height: 9vh;
+  background: #fff;
+  border-radius: 50%;
+}
+
+/* 云朵大小 透明度 位置 */
+.cloud:nth-child(1) {
+  z-index: 2;
+  top: 10vh;
+  right: 10vh;
+  transform: scale(1.2,1.2);
+  animation: cloud1 10s linear infinite;
+}
+.cloud:nth-child(2) {
+  z-index: 1;
+  top: 4vh;
+  right: 10vh;
+  opacity: .7;
+  animation: cloud2 11.2s linear infinite;
+}
+.cloud:nth-child(3) {
+  z-index: 0;
+  top: 3vh;
+  right: 18vh;
+  opacity: .8;
+  animation: cloud3 12s linear infinite;
+}
+.cloud:nth-child(4) {
+  z-index: 1;
+  top: 18vh;
+  right: 17vh;
+  opacity: .8;
+  animation: cloud4 12s linear infinite;
+}
+.cloud:nth-child(5) {
+  z-index: 0;
+  top: 14vh;
+  right: 10vh;
+  transform: scale(0.7,0.7);
+  opacity: .6;
+  animation: cloud5 18s linear infinite;
+}
+
+/* 云朵动画 */
+@keyframes cloud1 {
+  from {
+    right: -3vw;
+  }
+  to {
+    right: 140vw;
+  }
+}
+@keyframes cloud2 {
+  from {
+    right: -20vw;
+  }
+  to {
+    right: 130vw;
+  }
+}
+@keyframes cloud3 {
+  from {
+    right: 15vw;
+  }
+  to {
+    right: 145vw;
+  }
+}
+@keyframes cloud4 {
+  from {
+    right: 10vw;
+  }
+  to {
+    right: 148vw;
+  }
+}
+@keyframes cloud5 {
+  from {
+    right: -10vw;
+  }
+  to {
+    right: 195vw;
+  }
+}
+
+/* 兔子 */
+.rabbit {
+  position: absolute;
+  bottom: 50px;
+  right: 200px;
+  width: 15vw;
+}
