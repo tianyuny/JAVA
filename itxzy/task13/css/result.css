@@ -1,0 +1,76 @@
+.result-container {
+  padding-top: .23rem;
+  border-top: 1px solid #74d4eb;
+}
+.result-container-top {
+  width: 4.84rem;
+}
+.result-container-head {
+  padding: 1.4rem 0 .19rem;
+  width: 3.51rem;
+  line-height: 1;
+  text-align: center;
+  font-size: .46rem;
+  color: white;
+  background: #29bde0 url('../img/win.png') no-repeat center;
+  background-size: 100%;
+}
+.result-container-title {
+  margin-top: .16rem;
+  line-height: 1.375;
+  font-size: .31rem;
+  color: #ffc865;
+}
+.result-container-abstract {
+  margin-top: .5rem;
+  padding-bottom: .19rem;
+  line-height: 1.52;
+  font-size: .25rem;
+  color: white;
+}
+.result-container-abstract p > span {
+  display: inline-block;
+  margin: 0 .53rem;
+}
+.result-container-bottom {
+  padding-bottom: 1.39rem;
+  background-color: white;
+}
+.result-container-history {
+  padding: 0 .76rem;
+  border-bottom: .02rem solid #ddd;
+}
+.result-container-history-title {
+  line-height: .54rem;
+  font-size: .28rem;
+  color: #515151;
+}
+.result-container-history-title > span {
+  font-size: .19rem;
+  color: #c7c7c7;
+}
+.result-container-history-content {
+  padding: .09rem 0 .27rem;
+  line-height: 1.6666666;
+  font-size: .24rem;
+  color: #a6a6a6;
+}
+.result-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 1.29rem;
+  line-height: .86rem;
+  font-size: .38rem;
+  background-color: rgba(41, 189, 224, 0.5);
+}
+.result-footer-left {
+  background-color: #f66f6f;
+}
+.result-footer-right {
+  background-color: #fbb435;
+}
+.result-footer .btn {
+  width: 2.71rem;
+  border-radius: .06rem;
+}

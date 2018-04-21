@@ -1,0 +1,22 @@
+body{
+  transition: transform 1s;
+  &.active{
+    transform: translateX(5rem);
+  }
+}
+.slide-menu{
+  position: fixed;
+  top: 0;
+  left: -5rem;
+  width: 5rem;
+  height: 100%;
+  color: #29bde0;
+  background-color: white;
+  z-index: 5;
+  &-item{
+    padding: 0 .3rem;
+    line-height: .5rem;
+    font-size: .3rem;
+    border-bottom: .02rem solid #ddd;
+  }
+}

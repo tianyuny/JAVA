@@ -1,0 +1,93 @@
+.vote-container {
+  margin-bottom: 1.9rem;
+}
+.vote-container-head {
+  position: relative;
+  line-height: .82rem;
+  text-indent: 2em;
+  font-size: .26rem;
+  color: #464646;
+  background-color: #b9e9f5;
+}
+.vote-container-head:after {
+  position: absolute;
+  left: .7rem;
+  bottom: -0.21rem;
+  border: .08rem solid transparent;
+  border-top: .13rem solid #b9e9f5;
+  content: '';
+}
+.vote-container-descr {
+  margin-top: .24rem;
+  text-indent: .7rem;
+  font-size: .24rem;
+  color: white;
+}
+.vote-container-content {
+  margin-top: .43rem;
+  width: 5.5rem;
+}
+.vote-container-content-wrap {
+  margin-left: -0.71rem;
+}
+.vote-container-content-item {
+  position: relative;
+  margin-left: .71rem;
+  margin-bottom: .73rem;
+  width: 1.26rem;
+  height: 1.26rem;
+  border: .05rem solid white;
+}
+.vote-container-content-item-top {
+  line-height: .99rem;
+  font-size: .27rem;
+  color: #565656;
+  background-color: #f5c97b;
+}
+.vote-container-content-item-bottom {
+  line-height: .27rem;
+  font-size: .21rem;
+  color: white;
+  background-color: #83b09a;
+}
+.vote-container-content-item:hover .vote-container-content-item-tool {
+  display: flex;
+}
+.vote-container-content-item-tool {
+  display: none;
+  justify-content: space-between;
+  position: absolute;
+  left: -0.05rem;
+  top: 1.26rem;
+  padding-top: .22rem;
+  width: 107.9365079%;
+}
+.vote-container-content-item-tool .btn {
+  width: .3rem;
+  height: .3rem;
+  font-size: .2rem;
+  background-color: white;
+}
+.vote-container-content-item-tool .knife {
+  background: white url('../img/knife.png') no-repeat center;
+  background-size: 80%;
+}
+.vote-container-content-item-tool .search {
+  color: #fbb433;
+}
+.vote-container-content-item-tool .target {
+  color: #37ab13;
+}
+.vote-container-content-item-tool .cross {
+  color: #ff6b64;
+}
+.vote-footer {
+  padding: .42rem 0 .61rem;
+  background-color: #29bde0;
+}
+.vote-footer-btn {
+  width: 4.9rem;
+  line-height: .87rem;
+  font-size: .38rem;
+  background-color: #fbb435;
+}

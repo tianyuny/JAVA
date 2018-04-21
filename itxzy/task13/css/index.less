@@ -1,0 +1,74 @@
+body{
+  background-color: #f0f0f0;
+  padding-bottom: .61rem;
+}
+.index {
+  &-public{
+    margin-top: .27rem;
+    border: 1px solid #d0d0d0;
+    background-color: white;
+  }
+  &-container{
+    width: 5.68rem;
+  }
+  &-history{
+    line-height: 1.16rem;
+    font-size: .33rem;
+    >.ct-blk{
+      width: 4.2rem;
+      color: #9a9a9a;
+  }
+    >a{
+      margin-right: .14rem;
+      color: #e7e7e7;
+    }
+  }
+  &-game{
+    position: relative;
+    padding-bottom: .4rem;
+    &-title{
+      line-height: .9rem;
+      font-size: .35rem;
+      font-weight: normal;
+      color: #fbb435;
+      border-bottom: 2px solid #fdd793;
+    }
+    &-vers{
+      margin-top: .3rem;
+      margin-bottom: .3rem;
+      width: 4.64rem;
+      line-height: 1.36rem;
+      font-size: .3rem;
+      background: #69d1e9;
+    }
+    &-message{
+      font-size: .24rem;
+      color: #787878;
+    }
+    &-turn{
+      position: absolute;
+      top: 3.8rem;
+      right: -.14rem;
+      font-size: .70rem;
+      color: #fbb435;
+    }
+    &-pointer{
+      position: absolute;
+      left: 50%;
+      bottom: .09rem;
+      transform: translateX(-50%);
+      font-size: 0;
+      span{
+        display: inline-block;
+        margin: 0 .04rem;
+        width: .18rem;
+        height: .18rem;
+        border-radius: 50%;
+        background-color: #f0f0f0;
+        &.active{
+          background-color: #69d1e9;
+        }
+      }
+    }
+  }
+}
