@@ -6,10 +6,11 @@
         arcStart = -Math.PI*0.5;
     if(!btn.addEventListener || !audio) return;
 
-    function btnClassSwop(){
-        btn.classList.toggle('icon-pause2');
-        btn.classList.toggle('icon-play');
-    }
+    // function btnClassSwop(){
+    //     console.log('class');
+    //     btn.classList.toggle('icon-pause2');
+    //     btn.classList.toggle('icon-play');
+    // }
     function drawArc(deg){
         ctx.clearRect(0,0,100,100);
         ctx.beginPath();
@@ -20,7 +21,9 @@
     }
     audio.setAttribute('src','audio/GameOver.mp3');
     audio.addEventListener('playing',function(){
-        btnClassSwop();
+        console.log('playing');
+        btn.classList.add('icon-pause2');
+        btn.classList.remove('icon-play');
         drawArc(0);
         clear = setInterval(function(){
             var deg = Math.PI*2*(audio.currentTime / audio.duration);
@@ -28,16 +31,18 @@
         },300);
     });
     audio.addEventListener('pause',function(){
-        btnClassSwop();
+        console.log('pause');
+        btn.classList.remove('icon-pause2');
+        btn.classList.add('icon-play');
         drawArc(0);
         clearInterval(clear);
     });
-    audio.addEventListener('ended',function(){
-        console.log('ended')
-        btnClassSwop();
-        drawArc(0);
-        clearInterval(clear);
-    });
+    // audio.addEventListener('ended',function(){
+    //     console.log('ended');
+    //     btnClassSwop();
+    //     drawArc(0);
+    //     clearInterval(clear);
+    // });
 
     btn.addEventListener('click',function(){
         audio.paused ? audio.play() : audio.pause();
