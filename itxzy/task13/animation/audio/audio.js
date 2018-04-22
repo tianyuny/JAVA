@@ -18,16 +18,7 @@
         ctx.arc(50,50,44.5,arcStart,arcStart + deg,false);
         ctx.stroke();
     }
-
-    audio.addEventListener('ended',function(){
-        btnClassSwop();
-        clearInterval(clear);
-    });
-    audio.addEventListener('pause',function(){
-        btnClassSwop();
-        clearInterval(clear);
-        drawArc(Math.PI*2);
-    });
+    audio.setAttribute('src','audio/GameOver.mp3');
     audio.addEventListener('playing',function(){
         btnClassSwop();
         drawArc(0);
@@ -35,6 +26,17 @@
             var deg = Math.PI*2*(audio.currentTime / audio.duration);
             drawArc(deg);
         },300);
+    });
+    audio.addEventListener('pause',function(){
+        btnClassSwop();
+        drawArc(0);
+        clearInterval(clear);
+    });
+    audio.addEventListener('ended',function(){
+        console.log('ended')
+        btnClassSwop();
+        drawArc(0);
+        clearInterval(clear);
     });
 
     btn.addEventListener('click',function(){
