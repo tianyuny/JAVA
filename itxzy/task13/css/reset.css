@@ -19,3 +19,4 @@ del,ins,u,s,a,a:hover{text-decoration:none;}
 body,textarea,input,button,select,keygen,legend{outline:0;}
 button{font-size: inherit;}
 a,a:hover{color:#333;}
+html{-webkit-tap-highlight-color: transparent;}

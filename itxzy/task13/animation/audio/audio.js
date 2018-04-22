@@ -6,11 +6,6 @@
         arcStart = -Math.PI*0.5;
     if(!btn.addEventListener || !audio) return;
 
-    // function btnClassSwop(){
-    //     console.log('class');
-    //     btn.classList.toggle('icon-pause2');
-    //     btn.classList.toggle('icon-play');
-    // }
     function drawArc(deg){
         ctx.clearRect(0,0,100,100);
         ctx.beginPath();
@@ -37,14 +32,9 @@
         drawArc(0);
         clearInterval(clear);
     });
-    // audio.addEventListener('ended',function(){
-    //     console.log('ended');
-    //     btnClassSwop();
-    //     drawArc(0);
-    //     clearInterval(clear);
-    // });
 
     btn.addEventListener('click',function(){
         audio.paused ? audio.play() : audio.pause();
+        return false;
     });
 }(document);
