@@ -1,0 +1,142 @@
+
+
+html{ font-size: 100px;}
+
+.u-close {
+  position: absolute;
+  top: -.55rem;
+  right: 0;
+  width: .42rem;
+  height: .42rem;
+  transform-origin: 50% 50%;
+  border: 1px solid #e8e8e8;
+  border-radius: 50%;
+  transform: rotate(45deg);
+  &:before,&:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: .3rem;
+    height: 1px;
+    background-color: #e8e8e8;
+    border-radius: 50%;
+  }
+  &:after {
+    transform-origin: 50% 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+}
+
+.m-flow{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #47444c;
+  background-color: rgba(0,0,0,.729);
+  .content {
+    &:before { /* 关闭按钮下方的竖线 */
+      content: '';
+      position: absolute;
+      top: -.12rem;
+      right: .21rem;
+      width: 1px;
+      height: .13rem;
+      background-color: #e8e8e8;
+    }
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5.32rem;
+    height: 8.25rem;
+    padding: .4rem;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: .2rem;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background: linear-gradient(#e8e8e8,#b0b0b0);
+  }
+  .title {
+    text-align: left;
+    font-size: .3rem;
+    &-em {
+      font-size: .6rem;
+    }
+    &-importance {
+      color: #cc3341;
+    }
+  }
+  .selfinfo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    .img {
+      position: relative;
+      width: .53rem;
+      font-size: .12rem;
+      > img {
+        width: .53rem;
+        height: .53rem;
+      }
+      > p {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%,100%);
+      }
+    }
+    .words {
+      margin-left: .13rem;
+      font-size: .36rem;
+      color: #47444c;
+      line-height: 1.2;
+      border-bottom: solid .02rem;
+    }
+  }
+  .phone {
+    position: relative;
+    img {
+      margin: .4rem auto .2rem;
+      width: 2.59rem;
+      height: 3.8rem;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: .14rem;
+      left: 50%;
+      width: 3.5rem;
+      height: .25rem;
+      transform: translate(-50%, 0);
+      background: radial-gradient(rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 63%, rgba(255, 255, 255, 0.1));
+      border-radius: 50%;
+      z-index: -1;
+    }
+  }
+  .btn {
+    display: block;
+    margin: .2rem auto 0;
+    width: 3.47rem;
+    line-height: .76rem;
+    font-size: .29rem;
+    color: #dcdcdc;
+    background-color: #b83a45;
+    border-radius: .03rem;
+  }
+  .myphone {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+}
+
