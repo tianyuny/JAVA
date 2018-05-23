@@ -28,3 +28,11 @@
         }
     }
 }();
+
+spa.add(function (context, next) {
+    console.log('spa');
+    next();
+});
+spa.add(function () {
+    console.log('spa2');
+});

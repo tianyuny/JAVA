@@ -26,12 +26,13 @@ function rest(options) {
         matchers.find(function (it) {
             let res = it.matcher.exec(path);
             if (res) {
-                it.keys.forEach(function (kdy, index) {
+                it.keys.forEach(function (key, index) {
                     ret[key] = res[index + 1] || '';
                 });
                 return true;
             }
         });
+        return ret;
     }
 
     return function (context, next) {
@@ -40,7 +41,10 @@ function rest(options) {
         req.restParams = getParams(req.pathname);*/
 
         if (!!req.hash) {
-            let hash = new URL(req.hash.substr(1), req.origin);
+            let hash = new URL(
+                req.hash.substr(1),
+                req.origin
+            );
             context.hash = hash;
             hash.restParams = getParams(hash.pathname);
         }

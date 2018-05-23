@@ -1,10 +1,13 @@
-// 路由器中间件
+/*
+*   路由器中间件
+* */
+
 function router(options) {
     let routes = options.routes || {};
     let current = null;
 
     return function(context, next) {
-        let name = context.request.qathname;
+        let name = context.request.pathname;
         let module = routes[name];
         if (!module) {
             redirect('/404');
