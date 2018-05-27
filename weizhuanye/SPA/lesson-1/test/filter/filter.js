@@ -22,15 +22,3 @@ class Filter {
     }
 }
 
-// 登录校验过滤器
-class AuthFilter extends Filter {
-
-    doFilter() {
-        let session = this._context.session;
-        if (!session || !session.user|| !session.user.id) {
-            redirect('/logion');
-            return;
-        }
-        super.chain();
-    }
-}

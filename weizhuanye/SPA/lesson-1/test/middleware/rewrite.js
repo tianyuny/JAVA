@@ -6,7 +6,7 @@ function rewrite(options) {
     rules.forEach(function (it) {
         let target = it.target;
         if (typeof target !== 'function') {
-            it.target = function (ctx) {
+            it.target = function () {
                 return target;
             }
         }
@@ -46,5 +46,7 @@ function rewrite(options) {
                 context.hash.pathname = target;
             }
         }
+
+        next();
     }
 }

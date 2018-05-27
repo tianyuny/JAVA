@@ -7,7 +7,7 @@ function router(options) {
     let current = null;
 
     return function(context, next) {
-        let name = context.request.pathname;
+        let name = context.hash.pathname;
         let module = routes[name];
         if (!module) {
             redirect('/404');
@@ -15,7 +15,7 @@ function router(options) {
         }
 
         if (!(module instanceof Module)) {
-            module = new module();
+            module = new module(current);
             routes[name] = module;
             module.build(context);
         }

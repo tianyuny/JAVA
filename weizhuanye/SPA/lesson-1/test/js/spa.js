@@ -4,9 +4,9 @@
 !function () {
     let mws = [];
     window.spa = {
-        add: function (mw) {
+        add: function(mw) {
             if (mw instanceof Array) {
-                mw.forEach(function (it) {
+                mw.forEach(function(it) {
                     spa.add(it);
                 });
                 return;
@@ -15,9 +15,10 @@
                 mws.push(mw);
             }
         },
-        dispatch: function (context) {
+        dispatch: function(context) {
             let index = 0,
-                next = function () {
+                next = function() {
+                    console.log(context);
                     let mw = mws[index];
                     index++;
                     if (mw) {
@@ -28,11 +29,3 @@
         }
     }
 }();
-
-spa.add(function (context, next) {
-    console.log('spa');
-    next();
-});
-spa.add(function () {
-    console.log('spa2');
-});

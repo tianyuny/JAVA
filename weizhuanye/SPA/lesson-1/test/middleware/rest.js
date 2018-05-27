@@ -40,6 +40,7 @@ function rest(options) {
         /*let req = context.request;
         req.restParams = getParams(req.pathname);*/
 
+        let req = context.request;
         if (!!req.hash) {
             let hash = new URL(
                 req.hash.substr(1),
@@ -47,6 +48,8 @@ function rest(options) {
             );
             context.hash = hash;
             hash.restParams = getParams(hash.pathname);
+        } else {
+            return;
         }
 
         next();

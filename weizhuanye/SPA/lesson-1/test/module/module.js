@@ -1,52 +1,28 @@
 class Module {
     constructor (config) {
-        this._parent = config.parent;
+        try {
+            this._parent = config.parent
+        } catch(e) {
+            this._parent = document.querySelector('#app');
+        }
     }
 
-    buildd () {
+    build() {
         // do somthing
-        // 子类生成 this._body
     }
 
-    show () {
+    show() {
         if (this._body) {
             this._parent.appendChild(this._body);
         }
     }
 
-    refresh () {}
+    refresh() {}
 
-    hide () {
+    hide() {
         if (this._body) {
             fragment.appendChild(this._body);
         }
     }
-
-    destroy () {}
 }
 
-class User extends Module {
-
-    build (options) {
-        super.build(options);
-        this._body = document.createElement('div');
-        this._unode = document.createElement('p');
-        this._body.appendChild(this._unode);
-    }
-
-    show (context) {
-        super.show(context);
-        let req = context.request;
-        this._doUpdateUser(req.restParams.uid);
-    }
-
-    refresh (context) {
-        super.refresh(context);
-        let req = context.request;
-        this._doUpdateUser(req.restParams.uid);
-    }
-
-    _doUpdateUser(uid) {
-        this._unode.innerHTML = '<p>大家好，我是用户' + uid + '</p>';
-    }
-}

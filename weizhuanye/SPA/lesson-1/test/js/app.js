@@ -9,6 +9,7 @@ let app = {
                 router(options)
             ]
         );
+
         filter.add(AuthFilter);
 
         let monitor = new Monitor({
@@ -16,6 +17,7 @@ let app = {
                 let context = {
                     request: new URL(e.newValue)
                 };
+
                 spa.dispatch(context);
             }
         });
@@ -34,7 +36,8 @@ app.start({
         }
     ],
     routes: {
+        '/404': Error,
         '/user/': User,
-        // '/group/': Group
+        /*'/group/': Group*/
     }
 });
